@@ -3,6 +3,7 @@ import template from './GraphWidget.html';
 import GraphLegendModule from './../../components/GraphLegend/GraphLegend';
 import CardModule from './../../components/Card/Card';
 import {BAR} from './../../constants/graphTypes';
+import {assignColorToData} from './../../helpers/prepareData';
 import 'c3';
 import './../../scss/c3.scss';
 import 'c3-angular';
@@ -17,19 +18,6 @@ class GraphWidgetController {
     this.maxValue = 0;
 
     this.onRender = this.onRender.bind(this);
-  }
-
-  /**
-   * TODO: Move to helper
-   */
-  assignColorToData() {
-    if (this.colors < this.data.columns.length) {
-      throw new Error('Not enought colors provided. Please add more');
-    }
-
-    this.data.columns.forEach((elem, index) => {
-      this.dataToDisplay.push(Object.assign(elem, {color: this.colors[index]}));
-    });
   }
 
   groupBarElements() {
@@ -71,7 +59,7 @@ class GraphWidgetController {
   }
 
   init() {
-    this.assignColorToData();
+    this.dataToDisplay = assignColorToData(this.colors, this.data.columns);
     this.groupBarElements();
     this.maxValue = this.getTheHighestValue();
   }

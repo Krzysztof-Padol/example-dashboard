@@ -2,6 +2,7 @@ import template from './DonutWidget.html';
 
 import GraphLegendModule from './../../components/GraphLegend/GraphLegend';
 import CardModule from './../../components/Card/Card';
+import {assignColorToData} from './../../helpers/prepareData';
 import 'c3';
 import './../../scss/c3.scss';
 import 'c3-angular';
@@ -12,28 +13,15 @@ class DonutWidgetController {
     this.dataToDisplay = [];
   }
 
-  /**
-   * TODO: Move to helper
-   */
-  assignColorToData() {
-    if (this.colors < this.data.length) {
-      throw new Error('Not enought colors provided. Please add more');
-    }
-
-    this.data.forEach((elem, index) => {
-      this.dataToDisplay.push(Object.assign(elem, {color: this.colors[index]}));
-    });
-  }
-
   $onInit() {
     if (!this.loading) {
-      this.assignColorToData();
+      this.dataToDisplay = assignColorToData(this.colors, this.data);
     }
   }
 
   $onChanges(changesObj) {
     if (changesObj.loading && changesObj.loading.currentValue === false) {
-      this.assignColorToData();
+      this.dataToDisplay = assignColorToData(this.colors, this.data);
     }
   }
 }
