@@ -1,18 +1,17 @@
 import GeoWidgetModule from './../../components/GeoWidget/GeoWidget';
 import StatsServiceModule from './../../services/stats';
+import BaseContainerController from './../BaseContainer';
 import {MAP_COLORS} from './../../constants/colors';
 
-class GeoSalesController {
+class GeoSalesController extends BaseContainerController {
   /** @ngInject */
   constructor(stats) {
+    super(stats);
     this.colors = MAP_COLORS;
-    this.loading = true;
+  }
 
-    stats.getGeo()
-      .then(response => {
-        this.data = response.data;
-        this.loading = false;
-      });
+  getData() {
+    return this.stats.getGeo();
   }
 }
 

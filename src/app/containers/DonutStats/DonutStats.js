@@ -1,18 +1,11 @@
 import DonutWidgetModule from './../../components/DonutWidget/DonutWidget';
 import StatsServiceModule from './../../services/stats';
-import {DONUT_COLORS} from './../../constants/colors';
+import BaseContainerController from './../BaseContainer';
 
-class donutStatsController {
+class donutStatsController extends BaseContainerController {
   /** @ngInject */
   constructor(stats) {
-    this.colors = DONUT_COLORS;
-    this.loading = true;
-
-    stats.getCommon()
-      .then(response => {
-        this.data = response.data;
-        this.loading = false;
-      });
+    super(stats);
   }
 }
 

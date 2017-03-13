@@ -1,17 +1,15 @@
 import SummaryWidgetModule from './../../components/SummaryWidget/SummaryWidget';
 import StatsServiceModule from './../../services/stats';
+import BaseContainerController from './../BaseContainer';
 
-class SummaryRevenueController {
+class SummaryRevenueController extends BaseContainerController {
   /** @ngInject */
   constructor(stats) {
-    this.loading = true;
-    this.data = null;
+    super(stats);
+  }
 
-    stats.getSummary()
-      .then(response => {
-        this.data = response.data;
-        this.loading = false;
-      });
+  getData() {
+    return this.stats.getSummary();
   }
 }
 
