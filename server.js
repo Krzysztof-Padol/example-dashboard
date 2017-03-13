@@ -20,10 +20,12 @@ function getJson(file) {
     return readJsonFileSync(filepath);
 }
 
-app.use('/', publicPath);
-app.get('/', (_, res) => {
-    res.sendFile(indexPath);
-});
+if (process.env.NODE_ENV === 'production') {
+    app.use('/', publicPath);
+    app.get('/', (_, res) => {
+        res.sendFile(indexPath);
+    });
+}
 
 app.get('/stats/common', function (req, res) {
     let response = getJson('json-mocks/donutStats.json');
