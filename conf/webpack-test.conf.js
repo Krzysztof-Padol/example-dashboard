@@ -1,7 +1,21 @@
 const webpack = require('webpack');
+
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const lost = require('lost');
+const postcssCssReset = require('postcss-css-reset');
+
 module.exports = {
   module: {
     loaders: [
+      {
+        test: require.resolve('c3'),
+        loader: 'expose-loader?$!expose-loader?c3'
+      },
+      {
+        test: require.resolve('jquery'),
+        loader: 'expose-loader?$!expose-loader?jQuery'
+      },
       {
         test: /\.json$/,
         loaders: [
@@ -23,6 +37,15 @@ module.exports = {
         ]
       },
       {
+        test: /\.(css|scss)$/,
+        loaders: [
+          'style-loader',
+          'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+          'sass-loader',
+          'postcss-loader'
+        ]
+      },
+      {
         test: /\.html$/,
         loaders: [
           'html-loader'
@@ -32,7 +55,9 @@ module.exports = {
   },
   plugins: [
     new webpack.LoaderOptionsPlugin({
-      options: {},
+      options: {
+        postcss: () => [lost, postcssCssReset, autoprefixer]
+      },
       debug: true
     })
   ],

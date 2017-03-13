@@ -1,70 +1,67 @@
 import angular from 'angular';
 import 'angular-mocks';
-import {MainSection} from './MainSection';
+import CardModule from './Card';
 
-describe('MainSection component', () => {
-  class MockTodoService {
-    addTodo() {}
-    editTodo() {}
-    deleteTodo() {}
-    completeTodo() {}
-    completeAll() {}
-    clearCompleted() {}
-  }
+describe('Card component', () => {
+  const title = 'Example title';
+  const body = 'Example body';
 
-  let component;
+  const template = `
+    <card data-loading="loading">
+      <card-title>${title}</card-title>
+      <card-body>${body}</card-body>
+    </card>
+  `;
 
-  beforeEach(() => {
-    angular
-      .module('mainSection', ['app/components/MainSection.html'])
-      .service('todoService', MockTodoService)
-      .component('mainSection', MainSection);
-    angular.mock.module('mainSection');
+  describe('with loading enabled', () => {
+    let element;
+    let $scope;
+
+    beforeEach(() => {
+      angular.mock.module(CardModule.name);
+
+      angular.mock.inject(($rootScope, $compile) => {
+        $scope = $rootScope.$new();
+        $scope.loading = true;
+        element = $compile(template)($scope);
+        $rootScope.$digest();
+      });
+    });
+
+    it('should transclude title', () => {
+      const el = element.find('h3').find('card-title');
+      expect(el.html().trim()).toEqual(title);
+    });
+
+    it('should not transclude body', () => {
+      const el = element.find('div').find('card-body');
+      expect(el[0]).toEqual(undefined);
+    });
   });
 
-  beforeEach(angular.mock.inject($componentController => {
-    component = $componentController('mainSection', {}, {});
-  }));
+  describe('with loading disabled', () => {
+    let element;
+    let $scope;
 
-  it('shoud call clearCompleted', () => {
-    spyOn(component.todoService, 'clearCompleted').and.callThrough();
-    component.handleClearCompleted();
-    expect(component.todoService.clearCompleted).toHaveBeenCalled();
-  });
+    beforeEach(() => {
+      angular.mock.module(CardModule.name);
 
-  it('shoud call completeAll', () => {
-    spyOn(component.todoService, 'completeAll').and.callThrough();
-    component.handleCompleteAll();
-    expect(component.todoService.completeAll).toHaveBeenCalled();
-  });
+      angular.mock.inject(($rootScope, $compile) => {
+        $scope = $rootScope.$new();
+        $scope.loading = false;
+        element = $compile(template)($scope);
+        $rootScope.$digest();
+      });
+    });
 
-  it('shoud set selectedFilter', () => {
-    component.handleShow('show_completed');
-    expect(component.selectedFilter.type).toEqual('show_completed');
-    expect(component.selectedFilter.filter({completed: true})).toEqual(true);
-  });
+    it('should transclude title', () => {
+      const el = element.find('h3').find('card-title');
+      expect(el.html().trim()).toEqual(title);
+    });
 
-  it('shoud call completeTodo', () => {
-    spyOn(component.todoService, 'completeTodo').and.callThrough();
-    component.handleChange();
-    expect(component.todoService.completeTodo).toHaveBeenCalled();
-  });
-
-  it('shoud call deleteTodo', () => {
-    spyOn(component.todoService, 'deleteTodo').and.callThrough();
-    component.handleSave({text: ''});
-    expect(component.todoService.deleteTodo).toHaveBeenCalled();
-  });
-
-  it('shoud call editTodo', () => {
-    spyOn(component.todoService, 'editTodo').and.callThrough();
-    component.handleSave({text: 'Hello'});
-    expect(component.todoService.editTodo).toHaveBeenCalled();
-  });
-
-  it('shoud call deleteTodo', () => {
-    spyOn(component.todoService, 'deleteTodo').and.callThrough();
-    component.handleDestroy();
-    expect(component.todoService.deleteTodo).toHaveBeenCalled();
+    it('should transclude body', () => {
+      const el = element.find('div').find('card-body');
+      expect(el.html().trim()).toEqual(body);
+    });
   });
 });

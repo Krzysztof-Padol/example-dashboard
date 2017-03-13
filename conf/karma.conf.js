@@ -23,10 +23,10 @@ module.exports = function (config) {
     preprocessors: {
       [conf.path.src('index.spec.js')]: [
         'webpack'
-      ],
-      [conf.path.src('**/*.html')]: [
-        'ng-html2js'
       ]
+      // [conf.path.src('**/*.html')]: [
+      //   'ng-html2js'
+      // ]
     },
     ngHtml2JsPreprocessor: {
       stripPrefix: `${conf.paths.src}/`
