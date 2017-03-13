@@ -2,7 +2,7 @@
     <card-title>{{::$ctrl.title | uppercase}}</card-title>
     <card-body>
         <div class="col-xs-12">
-            <p>In January you did</p>
+            <p>In {{::$ctrl.date | date:'LLLL'}} you did</p>
             <p class="{{ ::$ctrl.styles.profit }}">{{$ctrl.data.revenueThisMonth | currency}}</p>
         </div>
         <div class="col-xs-12 {{ ::$ctrl.styles.summary__table }}">

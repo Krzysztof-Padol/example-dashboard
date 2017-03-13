@@ -7,6 +7,7 @@ class SummaryController {
   /** @ngInject */
   constructor() {
     this.styles = styles;
+    this.date = new Date();
   }
 }
 
