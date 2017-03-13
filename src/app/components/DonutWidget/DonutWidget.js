@@ -11,17 +11,18 @@ class DonutWidgetController {
   /** @ngInject */
   constructor() {
     this.dataToDisplay = [];
+    this.assignColorToData = assignColorToData;
   }
 
   $onInit() {
     if (!this.loading) {
-      this.dataToDisplay = assignColorToData(this.colors, this.data);
+      this.dataToDisplay = this.assignColorToData(this.colors, this.data);
     }
   }
 
   $onChanges(changesObj) {
     if (changesObj.loading && changesObj.loading.currentValue === false) {
-      this.dataToDisplay = assignColorToData(this.colors, this.data);
+      this.dataToDisplay = this.assignColorToData(this.colors, this.data);
     }
   }
 }
