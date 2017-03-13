@@ -1,0 +1,30 @@
+{
+    "x-labels": "December, January, February",
+    "columns": [
+        {
+            "type": "bar",
+            "label": "Event",
+            "values": "120,243,345"
+        },
+        {
+            "type": "bar",
+            "label": "Single/Rental",
+            "values": "null,null,122"
+        },
+        {
+            "type": "bar",
+            "label": "Pass",
+            "values": "652,715,464"
+        },
+        {
+            "type": "bar",
+            "label": "Subscription",
+            "values": "null,null,null"
+        },
+        {
+            "type": "line",
+            "label": "Transactions",
+            "values": "125,138,586"
+        }
+    ]
+}

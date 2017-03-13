@@ -1,0 +1,7 @@
+@import '../../scss/colors';
+@import '../../scss/metrics';
+
+.main {
+    padding: $main-padding-left-right $main-padding-top-bottom;
+    color: $main-font-color;
+}

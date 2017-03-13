@@ -1,0 +1,25 @@
+@import '../../scss/colors';
+
+$bar-height: 30px;
+$bar-width: 80%;
+$bar-radius: 5px;
+$bar-label-color: #fff;
+
+.bar {
+    width: $bar-width;
+    height: $bar-height;
+    margin: 10px auto;
+    border-radius: $bar-radius;
+    background-color: $green-light;
+
+    &__inside {
+        height: 100%;
+        padding-right: 5px;
+        background-color: $green-1;
+        border-radius: $bar-radius;
+        text-align: right;
+        font-size: 14px;
+        color: $bar-label-color;
+        line-height: $bar-height;
+    }
+}

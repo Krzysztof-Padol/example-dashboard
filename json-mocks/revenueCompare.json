@@ -1,0 +1,15 @@
+{
+    "x-labels": "1,2,3,4",
+    "columns": [
+        {
+            "type": "line",
+            "label": "Previous Month",
+            "values": "2156.75,4688.6,12045.43,33516.68"
+        },
+        {
+            "type": "line",
+            "label": "This Month",
+            "values": "34997.48,34997.12,49449.76,62774.3"
+        }
+    ]
+}

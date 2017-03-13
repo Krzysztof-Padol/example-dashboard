@@ -1,0 +1,36 @@
+{
+    "values": {
+        "au": "56.53",
+        "us": "205.8",
+        "nl": "2077.65",
+        "ca": "23.44"
+    },
+    "tooltips": {
+        "au": "Revenue: $56.53\nTransactions: 3",
+        "us": "Revenue: $205.8\nTransactions: 15",
+        "nl": "Revenue: $2,077.65\nTransactions: 164",
+        "ca": "Revenue: $23.44\nTransactions: 2"
+    },
+    "data": [
+        {
+            "countryName": "Netherlands",
+            "profit": "2077.65",
+            "transactions": "164"
+        },
+        {
+            "countryName": "United States",
+            "profit": "205.8",
+            "transactions": "15"
+        },
+        {
+            "countryName": "Australia",
+            "profit": "56.53",
+            "transactions": "3"
+        },
+        {
+            "countryName": "Canada",
+            "profit": "23.44",
+            "transactions": "2"
+        }
+    ] 
+}

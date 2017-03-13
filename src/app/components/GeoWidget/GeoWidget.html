@@ -1,0 +1,24 @@
+<card data-loading="$ctrl.loading" class="{{ ::$ctrl.styles.geo }}">
+    <card-title>{{::$ctrl.title | uppercase}}</card-title>
+    <card-body>
+        <div class="col-xs-12 col-lg-6">
+            <h2 class="{{ ::$ctrl.styles.header }}"><strong>{{::$ctrl.transactions}}</strong> transactions from <strong>{{::$ctrl.countries}}</strong> different countries</h2>
+            <div class="col-xs-12">
+                <div class="row {{ ::$ctrl.styles.countryRow }}" ng-repeat="country in $ctrl.data.data">
+                    <div class="col-xs-4">
+                        {{::country.countryName}}
+                    </div>
+                    <div class="col-xs-4">
+                        <strong>{{::country.profit | currency}}</strong>
+                    </div>
+                    <div class="col-xs-4">
+                        {{::country.transactions}} transactions
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-lg-6">
+            <div id="vmap" style="height: 400px;"></div>
+        </div>
+    </card-body>
+</card>

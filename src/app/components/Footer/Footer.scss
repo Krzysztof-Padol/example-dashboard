@@ -1,0 +1,10 @@
+@import '../../scss/colors';
+@import '../../scss/metrics';
+
+$footer-font-size: 12px;
+
+.footer {
+    padding: $main-padding-left-right $main-padding-top-bottom;
+    color: $main-font-color;
+    font-size: $footer-font-size;
+}

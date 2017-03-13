@@ -1,0 +1,17 @@
+@import '../../scss/colors';
+@import '../../scss/metrics';
+$font-size: 23px;
+
+.header {
+    color: $main-font-color;
+    background-color: $widget-background-color;
+    border-top: 2px solid $green-1;
+    border-bottom: 1px solid $grey-1;
+    padding: $main-padding-left-right $main-padding-top-bottom;
+
+    h1 {
+        font-size: $font-size;
+        font-weight: 400;
+    }
+}
+

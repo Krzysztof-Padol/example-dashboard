@@ -1,0 +1,77 @@
+{
+    "paymentMethods": {
+    "dataType": "pie",
+    "data": [
+        {
+        "label": "VISA",
+        "value": 12125,
+        "tooltip": "Revenue: $339,938.46"
+        },
+        {
+        "label": "MasterCard",
+        "value": 7880,
+        "tooltip": "Revenue: $220,377.81"
+        },
+        {
+        "label": "PayPal",
+        "value": 8092,
+        "tooltip": "Revenue: $221,042.77"
+        },
+        {
+        "label": "iDeal",
+        "value": 15,
+        "tooltip": "Revenue: $120.6"
+        }
+    ]
+    },
+    "devices": {
+    "dataType": "pie",
+    "data": [
+        {
+        "label": "Desktop",
+        "value": 6013,
+        "tooltip": null
+        },
+        {
+        "label": "Tablet",
+        "value": 1577,
+        "tooltip": null
+        },
+        {
+        "label": "Smartphone",
+        "value": 1252,
+        "tooltip": null
+        },
+        {
+        "label": "TV",
+        "value": 404,
+        "tooltip": null
+        }
+    ]
+    },
+    "transactionTypes": {
+    "dataType": "pie",
+    "data": [
+        {
+        "label": "FREE",
+        "value": 2044,
+        "tooltip": null
+        },
+        {
+        "label": "LIVE",
+        "value": 25582,
+        "tooltip": null
+        },
+        {
+        "label": "SVOD",
+        "value": 2105,
+        "tooltip": null
+        },
+        {
+        "label": "VOD",
+        "value": 4,
+        "tooltip": null
+        }
+    ]
+    }
+}

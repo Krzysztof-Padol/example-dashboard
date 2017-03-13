@@ -1,0 +1,22 @@
+<card data-loading="$ctrl.loading">
+    <card-title>{{::$ctrl.title | uppercase}}</card-title>
+    <card-body>
+        <div class="col-xs-12">
+            <p>In January you did</p>
+            <p class="{{ ::$ctrl.styles.profit }}">{{$ctrl.data.revenueThisMonth | currency}}</p>
+        </div>
+        <div class="col-xs-12 {{ ::$ctrl.styles.summary__table }}">
+            <div class="row {{ ::$ctrl.styles.summary__table__row }}">
+                <div class="col-xs-7 {{ ::$ctrl.styles.summary__desc }}">Last month you did</div>
+                <div class="col-xs-5 {{ ::$ctrl.styles.summary__value }}"><strong>{{$ctrl.data.revenueLastMonth | currency}}</strong></div>
+            </div>
+            <div class="row {{ ::$ctrl.styles.summary__table__row }}">
+                <div class="col-xs-7 {{ ::$ctrl.styles.summary__desc }}">Average monthly revenue</div>
+                <div class="col-xs-5 {{ ::$ctrl.styles.summary__value }}"><strong>{{$ctrl.data.revenueAverage | currency}}</strong></div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <progress-bar data-value="$ctrl.data.revenueRate"></progress-bar>
+        </div>
+    </card-body>
+</card>

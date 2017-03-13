@@ -1,0 +1,30 @@
+@import '../../scss/colors';
+
+
+$profit-font-size: 48px;
+$margin: 15px 0;
+
+.profit {
+    font-size: $profit-font-size;
+    font-weight: 900;
+    margin: $margin;
+}
+
+.summary {
+    &__table {
+        border-top: 1px solid $grey-1;
+        padding-top: 15px;
+    }
+
+    &__table__row {
+        margin: 5px 0;
+    }
+
+    &__desc {
+        text-align: left;
+    }
+
+    &__value {
+        text-align: right;
+    }
+}

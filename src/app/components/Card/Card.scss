@@ -1,0 +1,76 @@
+@import '../../scss/colors';
+@import '../../scss/metrics';
+
+@import '../../scss/mixins/grid';
+
+$card-padding: 16px;
+$card-radius: 5px;
+$card-min-height: 310px;
+
+.card {
+    //use extend
+    color: $main-font-color;
+    background-color: $widget-background-color;
+    border: 1px solid $grey-1;
+    border-radius: $card-radius;
+    margin-bottom: 20px;
+    min-height: $card-min-height;
+
+    h3 {
+        padding: $card-padding;
+        font-size: 12px;
+        margin: 5px;
+    }
+
+    @include clearfix();
+}
+
+.body {
+    margin-top: 20px;
+    text-align: center;
+}
+
+$loader-size: 80px;
+$loader-box-size: 20px;
+
+.loader {
+    position: absolute;
+    transform: translate3d(-25%, -75%, 0);
+    top: 50%;
+    left: 50%;
+    width: $loader-size;
+    height: $loader-size;
+    &:before,
+    &:after{
+        content: "";
+        opacity: .3;
+        width: $loader-box-size;
+        height: $loader-box-size;
+        position: absolute;
+        background-color: $green-1;
+        animation: squaremove 1s ease-in-out infinite;
+    }
+
+    &:after{
+        bottom: 0;
+        animation-delay: 0.5s;
+    }
+}
+
+@keyframes squaremove{
+  0%, 100%{
+    transform: translate(0,0) rotate(0);
+  }
+
+  25%{
+    transform: translate($loader-box-size * 2,$loader-box-size * 2) rotate(45deg);
+  }
+
+  50%{
+    transform: translate(0px,$loader-size) rotate(0deg);
+  }
+
+  75%{
+    transform: translate(-$loader-box-size * 2,$loader-box-size * 2) rotate(45deg);
+  }
+}

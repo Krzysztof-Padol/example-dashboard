@@ -1,0 +1,22 @@
+<card data-loading="$ctrl.loading">
+    <card-title>{{::$ctrl.title | uppercase}}</card-title>
+    <card-body class="container">
+       <div class="col-sm-12 col-lg-6">
+            <c3chart bindto-id="donut-plot-{{$ctrl.uniqueId}}-chart">
+                <chart-legend show-legend="false"/>
+                <chart-column
+                        ng-repeat="item in $ctrl.dataToDisplay track by $index"
+                        column-id="{{::item.label}}"
+                        column-values="{{::item.value}}"
+                        column-color="{{::item.color}}"
+                        column-type="donut"/>
+                <chart-donut width="38"/>
+                <chart-tooltip show-tooltip="false"/>
+                <chart-size chart-height="185" chart-width="185"/>
+            </c3chart>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+            <graph-legend data-position="'right'" data-legend="$ctrl.dataToDisplay"/>
+        </div> 
+    </card-body>
+</card>

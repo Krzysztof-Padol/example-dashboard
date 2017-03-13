@@ -1,0 +1,44 @@
+@import '../../scss/colors';
+@import '../../scss/metrics';
+
+@import '../../scss/mixins/grid';
+
+$box-size: 12px;
+$box-radius: 3px;
+
+$label-font-size: 12px;
+
+.item {
+    margin: 0 0 20px;
+}
+
+.top {
+    margin: 0 0 20px;
+    float: right;
+}
+
+.right {
+    margin: 0 0 20px;
+    @include clearfix();
+}
+
+.box {
+    float: left;
+    width: $box-size;
+    height: $box-size;
+    background-color: red;
+    border-radius: $box-radius;
+}
+
+.label {
+    float: left;
+    margin-left: 20px;
+    font-size: $label-font-size;
+}
+
+.value {
+    float: right;
+    margin-left: 20px;
+    font-size: $label-font-size;
+    font-weight: 600;
+}

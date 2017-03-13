@@ -1,0 +1,6 @@
+<section class="{{ ::$ctrl.styles.card }}">
+    <h3 ng-transclude="title"></h3>
+    <div ng-if="$ctrl.loading" class="{{ ::$ctrl.styles.loader }}">
+    </div>
+    <div ng-if="!$ctrl.loading" class="{{ ::$ctrl.styles.body }}" ng-transclude="body"></div>
+</section>

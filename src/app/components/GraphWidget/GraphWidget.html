@@ -1,0 +1,35 @@
+<card data-loading="$ctrl.loading">
+    <card-title>{{::$ctrl.title | uppercase}}</card-title>
+    <card-body>
+        <graph-legend data-position="'top'" data-legend="$ctrl.dataToDisplay"></graph-legend>
+        <c3chart bindto-id="stacked-bar-plot-{{$ctrl.uniqueId}}-chart">
+            <chart-legend show-legend="false"/>
+        <chart-column column-id="x"
+            column-name="x"
+            column-values="{{$ctrl.data['x-labels']}}"/>
+        <chart-column 
+            ng-repeat="item in $ctrl.dataToDisplay track by $index"
+            column-id="{{::item.label}}"
+            column-name="{{::item.label}}"
+            column-color="{{::item.color}}"
+            column-values="{{::item.values}}"
+            column-type="{{::item.type}}"/>
+        <chart-group group-values="{{::$ctrl.groupElements}}"/>
+        <chart-bar width="20"/>
+        <chart-points point-radius="5"/>
+        <chart-grid show-x="false" show-y="true"></chart-grid>
+        <chart-axes values-x="x"/>
+        <chart-axis>
+            <chart-axis-x axis-type="category" />
+            <chart-axis-y
+                axis-min="0"
+                axis-max="{{$ctrl.maxValue}}"
+                axis-position="outer-middle"
+                axis-label="Revenue[$]"
+                axis-type="category"/>
+        </chart-axis>
+        <chart-size chart-height="200"/>
+        <chart-events on-rendered="$ctrl.onRender(data)"/>
+        </c3chart>
+    </card-body>
+</card>

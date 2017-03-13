@@ -1,0 +1,13 @@
+<section>
+    <div
+        class="{{ ::$ctrl.styles.item }}"
+        ng-class="{
+            {{ ::$ctrl.styles.top }}: $ctrl.position === 'top',
+            {{ ::$ctrl.styles.right }}: $ctrl.position === 'right'
+        }"
+        ng-repeat="item in $ctrl.legend track by $index">
+        <div class="{{ ::$ctrl.styles.box }}" ng-style="{'background-color': item.color}"></div>
+        <p class="{{ ::$ctrl.styles.label }}">{{ ::item.label }}</p>
+        <p class="{{ ::$ctrl.styles.value }}">{{ ::item.value }}</p>
+    </div>
+</section>
